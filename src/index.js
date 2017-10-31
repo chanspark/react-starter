@@ -9,18 +9,32 @@ import registerServiceWorker from './registerServiceWorker'
 import App from './shared/App'
 import './index.css'
 
-
+import { AppContainer } from 'react-hot-loader';
 
 // Let the reducers handle initial state
 const initialState = {}
 const store = configureStore(initialState)
 
-ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </Provider>
-, document.getElementById('root')
-)
+const render = Component => {
+  ReactDOM.render(
+    <AppContainer>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Component />
+      </BrowserRouter>
+    </Provider>
+    </AppContainer>
+  , document.getElementById('root')
+  )
+  
+}
+
+
+
+render(App)
+
+if (module.hot) {
+  module.hot.accept('./shared/App', () => { render(App) })
+}
+
 registerServiceWorker()

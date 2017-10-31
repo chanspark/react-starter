@@ -10,7 +10,6 @@ export default class App extends Component {
     return (
       <div>
         <h1>Server Side Rendering with Create React App v2</h1>
-        
         <Switch>
           <Route exact path="/" component={FirstPage}/>
           <Route path="/second" component={SecondPage}/>
