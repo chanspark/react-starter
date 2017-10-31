@@ -1,4 +1,4 @@
-import { SET, RESET } from '../types/user'
+import { SET, RESET } from 'types/user'
 
 export function set(payload){
   return {

@@ -7,7 +7,7 @@ const {renderToString} = require('react-dom/server')
 const {StaticRouter} = require('react-router-dom')
 
 const {default: configureStore} = require('../src/store')
-const {default: App} = require('../src/containers/App')
+const {default: App} = require('../src/shared/App')
 
 module.exports = function universalLoader(req, res) {
   const filePath = path.resolve(__dirname, '..', 'build', 'index.html')

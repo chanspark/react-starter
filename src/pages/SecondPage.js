@@ -2,19 +2,16 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import * as userActions from '../actions/user'
+import * as userActions from 'actions/user'
 import { Link } from 'react-router-dom'
-import './FirstPage.css'
+// import './SecondPage.css'
 
-class FirstPage extends Component {
+class SecondPage extends Component {
   render() {
-    const b64 = this.props.staticContext ? 'wait for it' : window.btoa('wait for it')
     return (
       <div className='bold'>
-        <h2>First Page</h2>
-        <p>{`Email: ${this.props.user.email}`}</p>
-        <p>{`b64: ${b64}`}</p>
-        <Link to={'/second'}>Second</Link>
+        <h2>Second Page</h2>
+        <Link to={'/'}>First</Link>
       </div>
     )
   }
@@ -31,4 +28,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(FirstPage)
+)(SecondPage)

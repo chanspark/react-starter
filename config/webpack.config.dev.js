@@ -32,6 +32,21 @@ module.exports = {
   // These are the "entry points" to our application.
   // This means they will be the "root" imports that are included in JS bundle.
   // The first two entry points enable "hot" CSS and auto-refreshes for JS.
+  // entry: {
+  //   dev: require.resolve('react-error-overlay'),
+  //   vendor: [
+  //     require.resolve('./polyfills'),
+  //     'react',
+  //     'react-dom',
+  //     'react-router-dom'
+  //   ],
+  //   app: [
+  //     require.resolve('react-dev-utils/webpackHotDevClient'),
+  //     paths.appIndexJs
+  //   ]
+  // },
+
+
   entry: [
     // Include an alternative client for WebpackDevServer. A client's job is to
     // connect to WebpackDevServer by a socket and get notified about changes.
@@ -43,6 +58,7 @@ module.exports = {
     // the line below with these two lines if you prefer the stock client:
     // require.resolve('webpack-dev-server/client') + '?/',
     // require.resolve('webpack/hot/dev-server'),
+    'react-hot-loader/patch',
     require.resolve('react-dev-utils/webpackHotDevClient'),
     // We ship a few polyfills by default:
     require.resolve('./polyfills'),
@@ -62,9 +78,12 @@ module.exports = {
     // This does not produce a real file. It's just the virtual path that is
     // served by WebpackDevServer in development. This is the JS bundle
     // containing code from all our entry points, and the Webpack runtime.
-    filename: 'static/js/bundle.js',
+    // filename: 'static/js/bundle.js',
     // There are also additional JS chunk files if you use code splitting.
-    chunkFilename: 'static/js/[name].chunk.js',
+    // chunkFilename: 'static/js/[name].chunk.js',
+
+    filename: 'static/js/[name].[hash].js',
+    chunkFilename: 'static/js/[name].[chunkhash].chunk.js',
     // This is the URL that app is served from. We use "/" in development.
     publicPath: publicPath,
     // Point sourcemap entries to original disk location
@@ -98,6 +117,9 @@ module.exports = {
       // please link the files into your node_modules/ and let module-resolution kick in.
       // Make sure your source files are compiled, as they will not be processed in any way.
       new ModuleScopePlugin(paths.appSrc),
+      new webpack.optimize.CommonsChunkPlugin({
+        name: 'vendor'
+      })
     ],
   },
   module: {
@@ -170,6 +192,9 @@ module.exports = {
           // It enables caching results in ./node_modules/.cache/babel-loader/
           // directory for faster rebuilds.
           cacheDirectory: true,
+          plugins: [
+            'react-hot-loader/babel'
+          ]
         },
       },
       // "postcss" loader applies autoprefixer to our CSS.
