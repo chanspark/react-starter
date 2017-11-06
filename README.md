@@ -25,14 +25,14 @@ yarn run start:server
 ```
 
 ## Tech Stack
-react
-react-router
-redux
-express
-server side rendering 
-react hot loader
-code splitting
-less
+1. react
+2. react-router
+3. redux
+4. express
+5. server side rendering 
+6. react hot loader
+7. code splitting
+8. less
 
 
 

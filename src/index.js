@@ -7,7 +7,7 @@ import configureStore from './store'
 import registerServiceWorker from './registerServiceWorker'
 
 import App from './shared/App'
-import './index.scss'
+import './index.less'
 
 import { AppContainer } from 'react-hot-loader';
 

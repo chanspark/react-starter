@@ -4,9 +4,6 @@ import { bindActionCreators } from "redux";
 
 import * as userActions from "actions/user";
 import { Link } from "react-router-dom";
-// import './FirstPage.css'
-import { Layout } from "antd";
-// import "antd";
 
 class FirstPage extends Component {
     render() {
