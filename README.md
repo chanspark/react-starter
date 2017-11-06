@@ -5,17 +5,20 @@
 I used CRA starter kit made by [ayroblu](https://github.com/ayroblu), which enable Redux, Express and SSR on react app created by CRA.  
 Checkout [the original repository](https://github.com/ayroblu/ssr-create-react-app-v2). 
 
-## install
+## Ant Design
+Installed [Ant Design theme](https://ant.design/docs/react/introduce) to the starter kit. In order to customize the styles, you will have to use LESS, instead of SASS. Refer to [customize theme](https://ant.design/docs/react/customize-theme#Less-variables) for customization.
+
+## Install
 ```
 npm install
 ```
 
-개발 모드
+Development Mode
 ```
 yarn start
 ```
 
-프로덕션 빌드 및 서버 (SSR 테스트)
+Production build & SSR test
 ```
 yarn run build
 yarn run start:server
@@ -29,7 +32,7 @@ express
 server side rendering 
 react hot loader
 code splitting
-sass
+less
 
 
 
