@@ -5,17 +5,17 @@
 I used CRA starter kit made by [ayroblu](https://github.com/ayroblu), which enable Redux, Express and SSR on react app created by CRA.  
 Checkout [the original repository](https://github.com/ayroblu/ssr-create-react-app-v2). 
 
-## install
+## Install
 ```
 npm install
 ```
 
-개발 모드
+Development Mode
 ```
 yarn start
 ```
 
-프로덕션 빌드 및 서버 (SSR 테스트)
+Production build & SSR test
 ```
 yarn run build
 yarn run start:server
